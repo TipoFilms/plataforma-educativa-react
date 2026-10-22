@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 function App() {
-  const [pestanaActiva, setPestanaActiva] = useState('foro'); // Iniciamos en el foro directo
+  const [pestanaActiva, setPestanaActiva] = useState('foro'); 
 
   const [descargando, setDescargando] = useState(false);
   const [progreso, setProgreso] = useState(0);
@@ -10,7 +10,7 @@ function App() {
   const [respuestas, setRespuestas] = useState({});
   const [puntaje, setPuntaje] = useState(null);
 
-  // ESTADOS DEL SPRINT 3 (REQ-005: FORO)
+
   const [comentarios, setComentarios] = useState([
     { id: 1, autor: 'Marisol', texto: '¡Me sirvió mucho el módulo offline para repasar en el camión sin gastar mis datos!', fecha: '19 oct. 2026' },
     { id: 2, autor: 'Aldo', texto: '¿Alguien sabe si el cuestionario del Sprint 2 tiene límite de intentos? Me equivoqué en la primera.', fecha: '20 oct. 2026' }
@@ -62,7 +62,7 @@ function App() {
     setPuntaje(aciertos);
   };
 
-  // FUNCIÓN DEL SPRINT 3: Publicar en el Foro
+
   const publicarComentario = () => {
     if (nuevoMensaje.trim() === '') return;
     const nuevo = {
@@ -87,7 +87,7 @@ function App() {
             <li><button onClick={() => setPestanaActiva('inicio')} style={estiloBotonNav(pestanaActiva === 'inicio')}>Lectura y Descargas</button></li>
             <li><button onClick={() => setPestanaActiva('videos')} style={estiloBotonNav(pestanaActiva === 'videos')}>Videos</button></li>
             <li><button onClick={() => setPestanaActiva('quiz')} style={estiloBotonNav(pestanaActiva === 'quiz')}>Cuestionarios</button></li>
-            <li><button onClick={() => setPestanaActiva('foro')} style={estiloBotonNav(pestanaActiva === 'foro')}>Foro Comunitario (REQ-005)</button></li>
+            <li><button onClick={() => setPestanaActiva('foro')} style={estiloBotonNav(pestanaActiva === 'foro')}>Foro Comunitario</button></li>
           </ul>
         </nav>
       </header>
@@ -135,14 +135,12 @@ function App() {
           </section>
         )}
 
-        {/* MÓDULO 4: FORO (SPRINT 3 - REQ-005) */}
         {pestanaActiva === 'foro' && (
           <section style={estiloTarjeta}>
-            <span style={estiloBadge}>REQ-005 (Finalizado)</span>
             <h2 style={{ marginTop: '10px', color: '#003b5c' }}>Foro de Discusión Comunitario</h2>
             <p style={{ color: '#555' }}>Resuelve tus dudas y comparte conocimiento con tus compañeros.</p>
             
-            {/* Lista de hilos/comentarios */}
+
             <div style={{ display: 'flex', flexDirection: 'column', gap: '15px', marginTop: '20px' }}>
               {comentarios.map((comentario) => (
                 <div key={comentario.id} style={{ padding: '15px', border: '1px solid #e2e8f0', borderRadius: '8px', backgroundColor: '#f8fafc' }}>
@@ -155,7 +153,7 @@ function App() {
               ))}
             </div>
 
-            {/* Caja para nuevo comentario */}
+
             <div style={{ marginTop: '25px', borderTop: '2px solid #e2e8f0', paddingTop: '20px' }}>
               <h3 style={{ fontSize: '16px', color: '#003b5c', marginTop: 0 }}>Agregar una nueva aportación</h3>
               <textarea
